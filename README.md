@@ -1,14 +1,24 @@
-# Age Eligibility Calculator — Streamlit Web App (v3.8)
+# Age Eligibility Calculator + School ERP Modules — Streamlit Web App
 
-**No logical changes** from your Tkinter desktop app. This is a faithful web conversion with the **same 2‑panel layout**.
+This Streamlit application includes two authenticated work areas:
 
-## Features
-- Age as on cutoff; valid DOB window
-- Class ranges KG‑1 to Grade 12 (min/max ages)
-- Submitted vs Not Submitted documents
-- PDF export (ReportLab), footer contains `copyright@eldhojacobsby2025`
-- Login page with Operator, School, Password `@9852`; admin `ELDHOJACOB` always works; others have a 90‑day trial
-- GUI header shows the developer tag
+1. **Age Eligibility Calculator** — Calculates age on a configured cut-off date, validates class eligibility, tracks mandatory documents, and keeps the original two-panel workflow.
+2. **School ERP Modules** — A full school ERP module blueprint covering student records, admissions, fees, transport, attendance, exams, academics, HR, payroll, portals, library, inventory, hostel, discipline, certificates, documents, communication, visitors, health, alumni, roles, reports, and settings.
+
+## School ERP Coverage
+
+The ERP area includes:
+
+- Dashboard cards for all 25 modules.
+- Search across module names, sections, and fields.
+- Module explorer with expandable field groups.
+- Prototype quick-entry forms for validating fields before database/workflow integration.
+
+## Login
+
+- Password: `@9852`
+- Admin username: `ELDHOJACOB`
+- Non-admin users have a 90-day trial based on `.age_eligibility_config.json`.
 
 ## Local Run (Windows/Mac/Linux)
 
@@ -22,22 +32,13 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Deploy on Streamlit Cloud (Option 2)
+## Deploy on Streamlit Cloud
 
-1. Push these 3 files to a GitHub repo: `app.py`, `requirements.txt`, `README.md`.
+1. Push `app.py`, `requirements.txt`, and `README.md` to a GitHub repo.
 2. Go to https://share.streamlit.io/ → New app → Connect your repo.
 3. Select branch + `app.py` as the entry file → Deploy.
-4. (Optional) Add a **secrets** key/value in Streamlit Cloud for branding (not required).
+4. Add secrets or a database later if you want persistent ERP records.
 
-**Note on Trial File:** The trial date is stored in a local file `.age_eligibility_config.json`.
-- On Streamlit Cloud the filesystem resets on redeploys; for real persistence, you can swap to a small database (Deta/Firestore). Logic left unchanged here.
+## Persistence Note
 
-## LAN Tip
-If you run locally on a school PC: others can open `http://<YOUR_PC_IP>:8501` on the same LAN.
-
-## Buttons Behavior
-- **Calculate** is enabled when a nationality exists (same behavior).
-- **Download PDF** requires `reportlab` (already in requirements).
-
-## Support Fonts and Colors
-Design mirrors your desktop palette. Animations (blink) are approximated as static badges to keep logic unchanged and ensure stability on the web.
+The ERP quick-entry screen is a prototype and keeps values only in Streamlit session state. For production use, connect forms to a database and add role-based workflows per module.
