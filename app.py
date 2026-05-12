@@ -79,6 +79,133 @@ DEFAULT_RANGES: Dict[ClassKey, Range] = {
     "Grade 12":Range(Age(16, 0, 0), Age(19, 11, 29)),
 }
 
+
+
+SCHOOL_ERP_MODULES = [
+    {
+        "name": "Student Management",
+        "icon": "🎓",
+        "description": "Maintain complete student profiles, academic identity, enrollment status, and smart access identifiers.",
+        "sections": {
+            "Student Profile / Basic Information": ["Admission No", "Enroll No", "Application No", "Student Name", "Arabic Name", "Gender", "DOB", "Age", "Nationality", "Religion", "Blood Group", "Photo", "QID", "Passport No", "Passport Expiry", "Visa Expiry", "House", "Category", "Mother Tongue"],
+            "Academic Identity": ["Session", "Grade/Class", "Section", "Roll No", "Stream", "Second Language", "Third Language", "Electives", "CBSE Reg No", "Board Roll No", "Admission Date", "Joining Grade", "Previous School", "TC No", "TC Date"],
+            "Status": ["Active", "Inactive", "Alumni", "TC Issued", "Suspended", "Hold", "Admission Status", "NSIS Status", "MOEHE Status"],
+            "Smart Features": ["QR Code", "Barcode", "RFID No", "Student Login ID", "Parent Login Access", "Mobile App Access"],
+        },
+    },
+    {
+        "name": "Admission Management",
+        "icon": "📝",
+        "description": "Track enquiry-to-admission workflows including applications, parents, documents, admission tests, and approvals.",
+        "sections": {
+            "Application Entry": ["Application No", "Date", "Session", "Grade Applied", "Student Name", "DOB", "Gender", "Nationality", "QID", "Passport", "Previous School", "Sibling Details"],
+            "Parent Details": ["Father Name", "QID", "Mobile", "Email", "Occupation", "Mother Name", "QID", "Mobile", "Email", "Occupation", "Guardian Details"],
+            "Document Verification": ["Birth Certificate", "Passport", "QID", "Vaccination Card", "Previous Report Card", "TC", "Conduct Certificate", "Photo", "Parent IDs"],
+            "Admission Test": ["English Marks", "Maths Marks", "Science/EVS Marks", "Social Marks", "Total", "Result", "Recommended", "Not Recommended", "Retest"],
+            "Approval Flow": ["Verifier Status", "HOS Status", "Principal Status", "Remarks", "Approval Date", "Admission Confirmation"],
+        },
+    },
+    {
+        "name": "Fee Management",
+        "icon": "💳",
+        "description": "Configure fee structures, collect payments, issue receipts, and monitor outstanding balances.",
+        "sections": {
+            "Fee Structure": ["Session", "Grade", "Term Fee", "Tuition Fee", "Transport Fee", "Admission Fee", "Exam Fee", "Activity Fee", "Discount", "Fine"],
+            "Fee Collection": ["Student Search", "Fee Category", "Amount", "Discount", "Fine", "Payment Mode", "Receipt No", "Date", "Collected By"],
+            "Fee Receipt": ["Receipt No", "Student Details", "Fee Head", "Amount", "Balance", "Payment Mode", "Print Receipt", "PDF Receipt"],
+            "Fee Reports": ["Paid List", "Pending List", "Class-wise Collection", "Daily Collection", "Month-wise Collection", "Defaulters"],
+        },
+    },
+    {
+        "name": "Transport Management",
+        "icon": "🚌",
+        "description": "Manage routes, vehicles, student assignments, and transport fee/reporting operations.",
+        "sections": {
+            "Route Master": ["Route No", "Route Name", "Area", "Pickup Point", "Drop Point", "Distance", "Monthly Fee"],
+            "Vehicle Master": ["Bus No", "Plate No", "Driver Name", "Driver Mobile", "Helper Name", "Capacity", "Insurance Expiry", "Registration Expiry"],
+            "Student Transport Assignment": ["Student Search", "Route", "Pickup Point", "Drop Point", "Fee Amount", "Start Date", "Status"],
+            "Transport Reports": ["Route-wise Students", "Bus-wise Students", "Fee Pending", "Driver-wise Report"],
+        },
+    },
+    {
+        "name": "Attendance Management",
+        "icon": "✅",
+        "description": "Record student and staff attendance with daily/monthly analytics and late/absence tracking.",
+        "sections": {
+            "Student Attendance": ["Date", "Session", "Class", "Section", "Roll No", "Student Name", "Present", "Absent", "Late", "Leave", "Remarks"],
+            "Staff Attendance": ["Staff ID", "Name", "Department", "Date", "In Time", "Out Time", "Present", "Leave", "Late", "Remarks"],
+            "Reports": ["Daily Attendance", "Monthly Attendance", "Absentees", "Late Comers", "Attendance Percentage"],
+        },
+    },
+    {
+        "name": "Examination Management",
+        "icon": "📊",
+        "description": "Set exams, enter marks, generate report cards, and analyze subject/class performance.",
+        "sections": {
+            "Exam Setup": ["Exam Name", "Term", "Class", "Subject", "Max Marks", "Pass Marks", "Date", "Time"],
+            "Marks Entry": ["Student Name", "Roll No", "Subject", "Theory Marks", "Practical Marks", "Internal Marks", "Total", "Grade", "Result"],
+            "Report Card": ["Student Details", "Attendance", "Subject Marks", "Total", "Percentage", "Grade", "Rank", "Remarks"],
+            "Exam Reports": ["Class Result", "Subject Result", "Toppers", "Failed Students", "Grade Analysis"],
+        },
+    },
+    {
+        "name": "Academic Management",
+        "icon": "📚",
+        "description": "Maintain classes, subjects, timetables, and teacher lesson plans.",
+        "sections": {
+            "Class & Section": ["Session", "Class", "Section", "Class Teacher", "Strength"],
+            "Subject Master": ["Subject Code", "Subject Name", "Class", "Stream", "Type", "Max Marks"],
+            "Timetable": ["Class", "Section", "Day", "Period", "Subject", "Teacher", "Room"],
+            "Lesson Plan": ["Teacher", "Subject", "Class", "Chapter", "Learning Outcome", "Teaching Method", "Assessment"],
+        },
+    },
+    {
+        "name": "Staff / HR Management",
+        "icon": "👩‍🏫",
+        "description": "Handle staff profiles, qualifications, employment status, leave, and expiry reports.",
+        "sections": {
+            "Staff Profile": ["Staff ID", "Name", "Gender", "DOB", "Nationality", "QID", "Passport", "Designation", "Department", "Joining Date", "Photo"],
+            "Qualification": ["Degree", "University", "Year", "Subject", "Certificate Upload"],
+            "Employment Details": ["Job Type", "Contract Type", "Salary", "Work Status", "Visa Status", "Labour Card", "Health Card"],
+            "Leave Management": ["Leave Type", "From Date", "To Date", "Reason", "Status", "Approved By"],
+            "Staff Reports": ["Staff List", "QID Expiry", "Passport Expiry", "Health Card Expiry", "Contract Expiry"],
+        },
+    },
+    {
+        "name": "Payroll Management",
+        "icon": "💰",
+        "description": "Define salary structures, process monthly payroll, and produce salary/bank reports.",
+        "sections": {
+            "Salary Structure": ["Staff Name", "Basic Salary", "Allowances", "Deductions", "Transport", "Accommodation", "Net Salary"],
+            "Payroll Processing": ["Month", "Staff", "Attendance", "Leave Deduction", "Gross Salary", "Net Salary", "Payment Status"],
+            "Reports": ["Salary Sheet", "Payslip", "Bank Transfer Report", "Deduction Report"],
+        },
+    },
+    {"name": "Parent Portal", "icon": "👨‍👩‍👧", "description": "Self-service parent dashboard and communication center.", "sections": {"Parent Dashboard": ["Student Profile", "Attendance", "Fee Status", "Exam Result", "Notices", "Homework", "Transport Details"], "Communication": ["Messages", "Circulars", "Complaints", "Appointment Request", "Feedback"]}},
+    {"name": "Student Portal", "icon": "🧑‍🎓", "description": "Student dashboard for academic, fee, library, and notice information.", "sections": {"Student Dashboard": ["Profile", "Timetable", "Attendance", "Homework", "Assignments", "Exam Results", "Fee Status", "Library", "Notices"]}},
+    {"name": "Teacher Portal", "icon": "🧑‍🏫", "description": "Teacher workspace for classes, attendance, marks, homework, lesson plans, and remarks.", "sections": {"Teacher Dashboard": ["My Classes", "Attendance Entry", "Marks Entry", "Homework", "Lesson Plan", "Student Remarks"], "Academic Work": ["Subject Allocation", "Timetable", "Class Register", "Student Performance"]}},
+    {"name": "Library Management", "icon": "📖", "description": "Catalog books, issue/return items, calculate fines, and track library stock.", "sections": {"Book Master": ["Book ID", "Title", "Author", "Publisher", "ISBN", "Category", "Shelf No", "Quantity"], "Issue / Return": ["Student/Staff ID", "Book ID", "Issue Date", "Due Date", "Return Date", "Fine"], "Reports": ["Issued Books", "Pending Returns", "Fine Report", "Stock Report"]}},
+    {"name": "Inventory Management", "icon": "📦", "description": "Manage item stock, departmental issues, supplier details, and usage reports.", "sections": {"Item Master": ["Item Code", "Item Name", "Category", "Quantity", "Unit", "Supplier", "Purchase Date"], "Issue Items": ["Item", "Quantity", "Department", "Issued To", "Date", "Remarks"], "Reports": ["Stock Register", "Low Stock", "Department-wise Usage"]}},
+    {"name": "Hostel Management", "icon": "🏠", "description": "Track rooms, bed allocation, hostel fees, occupancy, and pending dues.", "sections": {"Room Master": ["Hostel Name", "Room No", "Capacity", "Occupied", "Available"], "Student Allocation": ["Student Name", "Room No", "Bed No", "Joining Date", "Fee"], "Reports": ["Hostel Students", "Room Occupancy", "Fee Pending"]}},
+    {"name": "Discipline Management", "icon": "⚖️", "description": "Record incidents, actions, counselling, and discipline reports.", "sections": {"Incident Entry": ["Student Name", "Class", "Date", "Incident Type", "Description", "Action Taken", "Reported By"], "Action": ["Warning", "Parent Meeting", "Suspension", "Fine", "Counselling"], "Reports": ["Student-wise Discipline", "Class-wise Incidents"]}},
+    {"name": "Certificate Management", "icon": "📜", "description": "Generate official certificates with purpose, date, signature, and PDF print support.", "sections": {"Certificate Types": ["Bonafide", "Conduct", "TC", "Study Certificate", "Fee Certificate", "NOC", "Internship Letter"], "Certificate Generation": ["Student Search", "Certificate Type", "Purpose", "Date", "Principal Signature", "PDF Print"]}},
+    {"name": "Document Management", "icon": "🗂️", "description": "Upload, verify, and monitor student/staff documents and expiry alerts.", "sections": {"Student Documents": ["Student ID", "Document Type", "Upload File", "Verified Status", "Remarks"], "Staff Documents": ["Staff ID", "Document Type", "Expiry Date", "Upload File", "Alert Status"]}},
+    {"name": "Communication Management", "icon": "📣", "description": "Send SMS/WhatsApp/email messages and publish circulars to selected audiences.", "sections": {"SMS / WhatsApp / Email": ["Recipient Type", "Class", "Section", "Message", "Template", "Send Date", "Status"], "Circulars": ["Title", "Date", "Audience", "Attachment", "Published By"]}},
+    {"name": "Visitor Management", "icon": "🪪", "description": "Log visitors, passes, meeting purpose, in/out times, and checkout reports.", "sections": {"Visitor Entry": ["Visitor Name", "Mobile", "QID", "Purpose", "Person to Meet", "In Time", "Out Time", "Pass No"], "Reports": ["Daily Visitors", "Staff-wise Visitors", "Pending Checkout"]}},
+    {"name": "Medical / Health Management", "icon": "🏥", "description": "Maintain health profiles and clinic visit records with parent notification flags.", "sections": {"Student Health Profile": ["Blood Group", "Allergy", "Medical Condition", "Doctor Name", "Emergency Contact"], "Clinic Visit": ["Date", "Student Name", "Complaint", "Treatment", "Medicine", "Parent Informed"]}},
+    {"name": "Alumni Management", "icon": "🎖️", "description": "Manage alumni profiles, passing years, current status, and alumni events.", "sections": {"Alumni Profile": ["Student Name", "Admission No", "Year of Passing", "Contact", "Email", "Current Status"], "Alumni Events": ["Event Name", "Date", "Venue", "Participants"]}},
+    {"name": "User & Role Management", "icon": "🔐", "description": "Administer users, roles, and permissions for view/add/edit/delete/print/export/approve actions.", "sections": {"Users": ["Name", "Username", "Password", "Role", "Department", "Email", "Mobile", "Status"], "Roles": ["Admin", "Principal", "HOS", "Teacher", "Accountant", "Transport", "Librarian", "Parent", "Student"], "Permissions": ["View", "Add", "Edit", "Delete", "Print", "Export", "Approve"]}},
+    {"name": "Reports & Dashboard", "icon": "📈", "description": "Executive dashboard and consolidated reports across student, fee, attendance, exam, HR, and transport data.", "sections": {"Main Dashboard": ["Total Students", "Staff", "Admissions", "Fee Collection", "Pending Fees", "Attendance", "Transport", "Exams"], "Reports": ["Student Reports", "Fee Reports", "Attendance Reports", "Exam Reports", "HR Reports", "Transport Reports"]}},
+    {"name": "Settings / Master Data", "icon": "⚙️", "description": "Configure school, academic, system, API, backup, and document template settings.", "sections": {"School Settings": ["School Name", "Logo", "Address", "Phone", "Email", "Website", "Affiliation No", "School Code"], "Academic Settings": ["Session", "Terms", "Classes", "Sections", "Subjects", "Exam Types"], "System Settings": ["Backup", "Restore", "SMS API", "Email SMTP", "WhatsApp API", "PDF Templates", "Receipt Format"]}},
+]
+
+ERP_SAMPLE_METRICS = [
+    ("Total Modules", len(SCHOOL_ERP_MODULES), "Complete ERP coverage"),
+    ("Core Operations", 9, "Students, admission, fees, transport, attendance, exams, academics, HR, payroll"),
+    ("Portals", 3, "Parent, student, and teacher self-service"),
+    ("Controls", 4, "Documents, communication, roles, settings"),
+]
+
 def class_list():
     return list(DEFAULT_RANGES.keys())
 
@@ -190,10 +317,103 @@ def login_view():
             return True
     return False
 
+
+# -----------------------------
+# School ERP helpers
+# -----------------------------
+def _field_badges(fields: list[str]) -> str:
+    return "".join(
+        f"<span style='display:inline-block;margin:3px;padding:5px 8px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:999px;color:#1e3a8a;font-size:12px'>{field}</span>"
+        for field in fields
+    )
+
+def render_erp_module_card(module: dict) -> None:
+    total_fields = sum(len(fields) for fields in module["sections"].values())
+    with st.container(border=True):
+        st.markdown(f"### {module['icon']} {module['name']}")
+        st.caption(module["description"])
+        st.metric("Configured Fields", total_fields)
+        for section, fields in module["sections"].items():
+            with st.expander(f"{section} ({len(fields)} fields)", expanded=False):
+                st.markdown(_field_badges(fields), unsafe_allow_html=True)
+
+def render_school_erp() -> None:
+    st.markdown(
+        f"<div style='background:{COLORS['bg']};padding:14px;border-radius:10px;border:1px solid {COLORS['border']}'>"
+        f"<h1 style='margin:0;color:{COLORS['text']}'>Full School ERP Modules</h1>"
+        f"<p style='margin:6px 0 0;color:{COLORS['muted']}'>A complete module blueprint for admissions, academics, finance, transport, portals, compliance, and reporting.</p>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+    metric_cols = st.columns(len(ERP_SAMPLE_METRICS))
+    for col, (label, value, help_text) in zip(metric_cols, ERP_SAMPLE_METRICS):
+        col.metric(label, value, help=help_text)
+
+    tab_overview, tab_explorer, tab_quick_entry = st.tabs(["Dashboard", "Module Explorer", "Quick Entry Mockup"])
+
+    with tab_overview:
+        st.subheader("ERP Coverage Map")
+        search = st.text_input("Search modules or fields", placeholder="Example: QID, Fee, Attendance, Certificate")
+        query = search.strip().lower()
+        filtered_modules = [
+            module for module in SCHOOL_ERP_MODULES
+            if not query
+            or query in module["name"].lower()
+            or any(query in section.lower() or any(query in field.lower() for field in fields) for section, fields in module["sections"].items())
+        ]
+        if not filtered_modules:
+            st.warning("No modules matched your search.")
+        else:
+            cols = st.columns(3)
+            for index, module in enumerate(filtered_modules):
+                field_count = sum(len(fields) for fields in module["sections"].values())
+                cols[index % 3].markdown(
+                    f"<div style='min-height:142px;background:{COLORS['card']};border:1px solid {COLORS['border']};border-radius:12px;padding:12px;margin-bottom:12px'>"
+                    f"<div style='font-size:26px'>{module['icon']}</div>"
+                    f"<div style='font-weight:700;color:{COLORS['text']}'>{module['name']}</div>"
+                    f"<div style='color:{COLORS['muted']};font-size:13px;margin:4px 0'>{module['description']}</div>"
+                    f"<span style='color:{COLORS['accent']};font-weight:700'>{len(module['sections'])} sections · {field_count} fields</span>"
+                    f"</div>",
+                    unsafe_allow_html=True,
+                )
+
+    with tab_explorer:
+        module_names = [module["name"] for module in SCHOOL_ERP_MODULES]
+        selected_name = st.selectbox("Select ERP Module", module_names)
+        selected_module = next(module for module in SCHOOL_ERP_MODULES if module["name"] == selected_name)
+        render_erp_module_card(selected_module)
+
+    with tab_quick_entry:
+        st.subheader("Prototype Data Entry Form")
+        st.caption("Use this mockup to validate field groups before connecting a database/workflow engine.")
+        module_names = [module["name"] for module in SCHOOL_ERP_MODULES]
+        selected_name = st.selectbox("Form Module", module_names, key="erp_form_module")
+        selected_module = next(module for module in SCHOOL_ERP_MODULES if module["name"] == selected_name)
+        section_names = list(selected_module["sections"].keys())
+        selected_section = st.selectbox("Form Section", section_names, key="erp_form_section")
+        fields = selected_module["sections"][selected_section]
+        with st.form("erp_quick_entry_form"):
+            st.markdown(f"**{selected_module['icon']} {selected_name} / {selected_section}**")
+            cols = st.columns(2)
+            for index, field in enumerate(fields[:12]):
+                widget_key = f"erp_{selected_name}_{selected_section}_{field}_{index}"
+                cols[index % 2].text_input(field, key=widget_key)
+            if len(fields) > 12:
+                st.info(f"Showing first 12 fields. {len(fields) - 12} additional fields are configured in the module explorer.")
+            submitted = st.form_submit_button("Save Prototype Entry", type="primary", use_container_width=True)
+        if submitted:
+            st.success("Prototype entry captured in session. Connect this form to persistent storage for production use.")
+
 # -----------------------------
 # MAIN APP
 # -----------------------------
 def main_app():
+    app_mode = st.sidebar.radio("Application", ["Age Eligibility Calculator", "School ERP Modules"])
+    if app_mode == "School ERP Modules":
+        render_school_erp()
+        return
+
     st.markdown(
         f"<div style='background:{COLORS['bg']};padding:12px;border-radius:8px;border:1px solid {COLORS['border']}'>"
         f"<span style='font-size:22px;font-weight:700;color:{COLORS['text']}'>Age Eligibility Calculator</span>"
